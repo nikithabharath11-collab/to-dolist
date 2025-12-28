@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galaxy Task Universe 🌌</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- RESET BUTTON -->
+<button class="reset-btn" onclick="resetBoard()">♻ Reset Board</button>
+<div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+
+<h1 class="main-title">🌠 Galaxy Task Universe</h1>
+<p class="subtitle">"One task at a time. One planet at a time. Build your universe."</p>
+
+<div class="add-task-box">
+  <input type="text" id="taskTitle" placeholder="Enter task name">
+  <textarea id="taskDescription" placeholder="Short description..."></textarea>
+  <input type="datetime-local" id="taskDeadline">
+  <select id="priority">
+    <option value="low">🟢 Low</option>
+    <option value="medium">🟡 Medium</option>
+    <option value="high">🔴 High</option>
+  </select>
+  <button onclick="addTask()">➕ Add</button>
+  <button onclick="exportTasks()">📄 Export</button>
+</div>
+
+<div class="board" id="board">
+
+  <div class="column" id="todo" ondragover="allowDrop(event)" ondrop="drop(event)">
+    <h2>📝 To Do</h2>
+    <div class="task-list"></div>
+  </div>
+
+  <div class="column" id="progress" ondragover="allowDrop(event)" ondrop="drop(event)">
+    <h2>🚧 In Progress</h2>
+    <div class="task-list"></div>
+  </div>
+
+  <div class="column" id="completed" ondragover="allowDrop(event)" ondrop="drop(event)">
+    <h2>✅ Completed</h2>
+    <div class="task-list"></div>
+  </div>
+
+  <div class="column deadline-col" id="deadlines" ondragover="allowDrop(event)" ondrop="drop(event)">
+    <h2>⏳ Timeline / Deadlines</h2>
+    <div class="task-list"></div>
+  </div>
+
+</div>
+
+<audio id="moveSound" src="https://assets.mixkit.co/sfx/preview/mixkit-modern-click-box-check-1120.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
